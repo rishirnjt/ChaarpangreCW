@@ -1,0 +1,130 @@
+.review {
+	display: flex;
+}
+
+.reviewsection {
+	background-color: #131313;
+	height: 820px;
+	width: 1200px;
+}
+
+.reviewimg {
+	height: 820px;
+	width: 1400px;
+	background-color: #7d7c9f;
+	background-image: url(/img/review\ img.jpg);
+	object-fit: cover;
+	background-size: cover;
+}
+
+.reviewcontainer {
+	padding: 80px;
+}
+
+.email {
+	margin-bottom: 20px;
+	text-align: left;
+}
+
+.email label {
+	display: block;
+	margin-bottom: 8px;
+	color: #f1f1f1;
+	font-size: 14px;
+}
+
+.email input {
+	color: #f1f1f1;
+	width: 100%;
+	padding: 12px;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	font-size: 16px;
+	box-sizing: border-box;
+}
+
+.reviewholder {
+	margin-bottom: 20px;
+	text-align: left;
+}
+
+.reviewholder label {
+	display: block;
+	margin-bottom: 8px;
+	color: #f1f1f1;
+	font-size: 14px;
+}
+
+.reviewholder input {
+	background-color: #f0f0f0;
+	width: 100%;
+	/* padding: 12px; */
+	border: 1px solid #ddd;
+	height: 200px;
+	border-radius: 5px;
+	font-size: 16px;
+	box-sizing: border-box;
+}
+
+.underline-input {
+	position: relative;
+}
+
+.underline-input input {
+	width: 100%;
+	border: none;
+	padding: 8px 0;
+	font-size: 16px;
+	background: transparent;
+	outline: none;
+}
+
+.underline {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 1px;
+	background-color: #dfdfdf;
+}
+
+.underline::before {
+	content: "";
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 2px;
+	background-color: #dfdfdf;
+	transform: scaleX(0);
+	transition: transform 0.3s ease;
+}
+
+.underline-input input:focus+.underline::before {
+	transform: scaleX(1);
+}
+
+.underline-input textarea {
+	border: none;
+	outline: none;
+	font-size: 16px;
+	resize: none;
+}
+
+/* Placeholder styling */
+textarea::placeholder {
+	font-size: 16px;
+	/* Increase placeholder size */
+	color: #aaa;
+	/* Optional: lighter placeholder color */
+}
+
+.submitreview {
+	background-color: #f1f1f1;
+	color: #131313;
+	padding: 30px 30px;
+	font-size: 16px;
+	font-weight: bold;
+	border-radius: 40px;
+	cursor: pointer;
+}

@@ -1,0 +1,240 @@
+@charset "UTF-8";
+
+body {
+	font-family: 'Arial', sans-serif;
+	background-color: #131313;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	margin: 0;
+}
+
+.register-container {
+	background-color: white;
+	border-radius: 10px;
+	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+	padding: 50px;
+	width: 400px;
+	text-align: center;
+}
+
+h1 {
+	color: #333;
+	font-size: 28px;
+	margin-bottom: 5px;
+	font-weight: bold;
+}
+
+h2 {
+	color: #333;
+	font-size: 24px;
+	margin-top: 0;
+	margin-bottom: 30px;
+	font-weight: normal;
+}
+
+.Fullname {
+	margin-bottom: 20px;
+	text-align: left;
+}
+
+.Fullname label {
+	display: block;
+	margin-bottom: 8px;
+	color: #666;
+	font-size: 14px;
+}
+
+.Fullname input {
+	width: 100%;
+	padding: 12px;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	font-size: 16px;
+	box-sizing: border-box;
+}
+
+.Address {
+	margin-bottom: 20px;
+	text-align: left;
+}
+
+.Address label {
+	display: block;
+	margin-bottom: 8px;
+	color: #666;
+	font-size: 14px;
+}
+
+.Address input {
+	width: 100%;
+	padding: 12px;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	font-size: 16px;
+	box-sizing: border-box;
+}
+
+.PhoneNumber {
+	margin-bottom: 20px;
+	text-align: left;
+}
+
+.PhoneNumber label {
+	display: block;
+	margin-bottom: 8px;
+	color: #666;
+	font-size: 14px;
+}
+
+.PhoneNumber input {
+	width: 100%;
+	padding: 12px;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	font-size: 16px;
+	box-sizing: border-box;
+}
+
+.Role {
+	margin-bottom: 20px;
+	text-align: left;
+	flex-direction: column;
+	margin-bottom: 20px;
+}
+
+.Role label {
+	display: block;
+	margin-bottom: 8px;
+	color: #666;
+	font-size: 14px;
+}
+
+
+.email {
+	margin-bottom: 20px;
+	text-align: left;
+}
+
+.email label {
+	display: block;
+	margin-bottom: 8px;
+	color: #666;
+	font-size: 14px;
+}
+
+.email input {
+	width: 100%;
+	padding: 12px;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	font-size: 16px;
+	box-sizing: border-box;
+}
+
+.password {
+	margin-bottom: 20px;
+	text-align: left;
+}
+
+.password label {
+	display: block;
+	margin-bottom: 8px;
+	color: #666;
+	font-size: 14px;
+}
+
+.password input {
+	width: 100%;
+	padding: 12px;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+	font-size: 16px;
+	box-sizing: border-box;
+}
+
+.remember-me {
+	display: flex;
+	align-items: center;
+	margin-bottom: 25px;
+	color: #666;
+	font-size: 14px;
+}
+
+.remember-me input {
+	margin-right: 10px;
+}
+
+.Register-button {
+	background-color: #131313;
+	color: #f1f1f1;
+	border: 2px solid #131313;
+	padding: 14px;
+	width: 100%;
+	border-radius: 5px;
+	font-size: 16px;
+	cursor: pointer;
+	margin-bottom: 20px;
+	transition: background-color 0.3s;
+}
+
+.Register-button:hover {
+	background-color: #4c4c4d;
+	border: 2px solid #4c4c4d;
+}
+
+.Register-button:active {
+	background-color: #FFFFFF;
+	border: 2px solid #131313;
+	color: #131313;
+}
+
+.register-link {
+	color: #a4a7a7;
+	text-decoration: none;
+	font-size: 12px;
+}
+
+.register-link:hover {
+	text-decoration: none;
+	color: #131313;
+}
+
+.underline-input {
+	position: relative;
+}
+
+.underline-input input {
+	width: 100%;
+	border: none;
+	padding: 8px 0;
+	font-size: 16px;
+	background: transparent;
+	outline: none;
+}
+
+.underline {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 1px;
+	background-color: #000;
+}
+
+.underline::before {
+	content: "";
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 2px;
+	background-color: #000;
+	transform: scaleX(0);
+	transition: transform 0.3s ease;
+}
+
+.underline-input input:focus+.underline::before {
+	transform: scaleX(1);
+}

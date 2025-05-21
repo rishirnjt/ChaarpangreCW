@@ -1,0 +1,101 @@
+@charset "UTF-8";
+
+body {
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	background-color: #000000;
+	margin: 0;
+	padding: 20px;
+	color: #333;
+}
+
+/* Container for the entire report */
+.report-container {
+	max-width: 1200px;
+	margin: 0 auto;
+	background-color: #FFFFFF;
+	padding: 30px;
+	border-radius: 8px;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Header */
+.report-container h1 {
+	text-align: center;
+	color: #333;
+	margin-bottom: 40px;
+}
+
+/* Summary Cards */
+.summary-cards {
+	display: flex;
+	justify-content: space-around;
+	margin-bottom: 40px;
+	flex-wrap: wrap;
+	gap: 20px;
+}
+
+.card {
+	background-color: #ecf0f1;
+	padding: 20px 30px;
+	border-radius: 6px;
+	flex: 1 1 200px;
+	text-align: center;
+	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card h2 {
+	margin-bottom: 10px;
+	color: #34495e;
+}
+
+.card p {
+	font-size: 1.5em;
+	font-weight: bold;
+	color: #27ae60;
+}
+
+/* Table Styles */
+table {
+	width: 100%;
+	border-collapse: collapse;
+	margin-bottom: 30px;
+}
+
+thead {
+	background-color: #333;
+	color: #ffffff;
+}
+
+thead th {
+	padding: 12px;
+	text-align: left;
+}
+
+tbody tr:nth-child(even) {
+	background-color: #f2f2f2;
+}
+
+tbody td {
+	padding: 12px;
+	border-bottom: 1px solid #ddd;
+}
+
+/* Footer Note */
+.footer-note {
+	text-align: center;
+	font-size: 0.9em;
+	color: #7f8c8d;
+	margin-top: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+	.summary-cards {
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.card {
+		width: 100%;
+	}
+}
