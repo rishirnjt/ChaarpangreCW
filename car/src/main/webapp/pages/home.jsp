@@ -156,6 +156,7 @@ textarea {
 					title="Wishlist"> <img
 					src="${pageContext.request.contextPath}/img/heart.png" width="40px"
 					alt="Wishlist">
+					
 				</a>
 				<!-- Add Login and Signup buttons -->
 				<!--  If user is not login show -->
@@ -295,25 +296,7 @@ textarea {
 		</div>
 	</div>
 
-	<%-- <div class="top-picks">
-		<h2 align="center">TOP PICKS</h2>
-		<div class="toppicks">
-			<c:forEach var="i" begin="1" end="4">
-				<div class="toppicks-container">
-					<div class="imgbox">
-						<img src="${pageContext.request.contextPath}/img/vw vitrus.webp"
-							class="productimg">
-					</div>
-					<div class="details">
-						<span class="category">Brand : Volkswagen</span>
-						<h4>
-							<a href="#">Volkswagen Vitrus</a>
-						</h4>
-					</div>
-				</div>
-			</c:forEach>
-		</div>
-	</div> --%>
+	
 	<!-- Showing succesfull msg here  -->
 	<c:if test="${not empty successMessage}">
 		<div style="color: green;">${successMessage}</div>

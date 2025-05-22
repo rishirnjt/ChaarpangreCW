@@ -118,15 +118,11 @@
 
         <div id="preview"></div>
 
-       <%--  <c:if test="${not empty car.imageUrl}">
-            <p>Current Image:</p>
-            <img src="${pageContext.request.contextPath}/images/${car.imageUrl}" alt="Current Car Image" width="150" />
-        </c:if>
- --%>
+      
         <input type="submit" value="Update Car" />
     </form>
 
-<button class="back-btn" onclick="window.location.href='<%=request.getContextPath()%>/CarListServlet'">Back to Car List</button>
+<button class="back-btn" onclick="window.location.href='<%=request.getContextPath()%>/CarListController'">Back to Car List</button>
 </div>
 
 <script>

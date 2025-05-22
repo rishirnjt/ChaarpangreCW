@@ -72,12 +72,16 @@ public class UpdateCarController extends HttpServlet {
 
              // Get real path of uploads/product_image in deployed app folder
                 String uploadPath = getServletContext().getRealPath("/uploads/product_image/");
+                System.out.println("Upload path: " + uploadPath);
+                
+
                 File uploadDir = new File(uploadPath);
                 if (!uploadDir.exists()) uploadDir.mkdirs();
 
                 
                 // saving file to disk
                 File savedFile = new File(uploadDir, uniqueFileName);
+                System.out.println("Image saved to: " + savedFile.getAbsolutePath());
                 try (InputStream input = imagePart.getInputStream();
                      FileOutputStream output = new FileOutputStream(savedFile)) {
                     byte[] buffer = new byte[1024];

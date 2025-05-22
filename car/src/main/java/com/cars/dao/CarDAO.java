@@ -141,7 +141,17 @@ public class CarDAO {
  	    }
  	    return false;
  	}
- 	
+ 	public boolean updateCarImage(int carId, String imagePath) throws SQLException, ClassNotFoundException {
+ 	    String sql = "UPDATE cars SET image = ? WHERE id = ?";
+ 	    try (Connection conn = DBConnection.getConnection();
+ 	         PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+ 	        stmt.setString(1, imagePath);
+ 	        stmt.setInt(2, carId);
+ 	        return stmt.executeUpdate() > 0;
+ 	    }
+ 	}
+
 
  // Delete car by ID
     public boolean deleteCar(int carId) throws ClassNotFoundException {
