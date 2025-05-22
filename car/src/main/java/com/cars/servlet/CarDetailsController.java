@@ -10,7 +10,11 @@ import java.io.IOException;
 
 @WebServlet("/CarDetailsController")
 public class CarDetailsController extends HttpServlet {
-    private CarDAO carDAO;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private CarDAO carDAO;
 
     @Override
     public void init() {

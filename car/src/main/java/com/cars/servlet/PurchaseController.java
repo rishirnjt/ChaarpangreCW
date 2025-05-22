@@ -17,7 +17,12 @@ import com.cars.model.User;
 @WebServlet("/PurchaseController")
 public class PurchaseController extends HttpServlet {
 
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
         HttpSession session = request.getSession(false);
         User user = (User) session.getAttribute("userWithSession");

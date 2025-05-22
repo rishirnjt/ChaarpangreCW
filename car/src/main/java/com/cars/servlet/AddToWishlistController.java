@@ -10,7 +10,12 @@ import com.cars.model.User;
 
 @WebServlet("/AddToWishlistController")
 public class AddToWishlistController extends HttpServlet {
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
         HttpSession session = request.getSession(false);

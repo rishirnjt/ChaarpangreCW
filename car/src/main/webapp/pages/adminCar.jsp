@@ -109,7 +109,7 @@
 
     <h2>Car List - Admin</h2>
 
-    <a href="<%=request.getContextPath()%>/pages/admin/addCar.jsp" class="add-btn">+ Add New Car</a>
+    <a href="<%=request.getContextPath()%>/pages/addCar.jsp" class="add-btn">+ Add New Car</a>
 
     <table>
         <thead>

@@ -1,18 +1,16 @@
-// UpdateCarServlet.java
 package com.cars.servlet;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
-import java.nio.file.Files;
+import java.io.InputStream;
 import java.nio.file.Paths;
-import java.sql.SQLException;
+import java.util.UUID;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.Part;
+import javax.servlet.http.*;
+
 import com.cars.dao.CarDAO;
 import com.cars.model.Car;
 
@@ -20,6 +18,8 @@ import com.cars.model.Car;
 @MultipartConfig
 public class UpdateCarController extends HttpServlet {
     private static final long serialVersionUID = 1L;
+
+
     private CarDAO carDAO;
 
     public UpdateCarController() {
@@ -50,7 +50,6 @@ public class UpdateCarController extends HttpServlet {
             String category = request.getParameter("category");
             String priceStr = request.getParameter("price");
             String colour = request.getParameter("colour");
-            Part imagePart = request.getPart("imageUrl");
 
             Car currentCar = carDAO.getCarById(carId);
 
@@ -61,18 +60,36 @@ public class UpdateCarController extends HttpServlet {
             if (priceStr == null || priceStr.isEmpty()) priceStr = String.valueOf(currentCar.getPrice());
             if (colour == null || colour.isEmpty()) colour = currentCar.getColour();
 
+            double price = Double.parseDouble(priceStr);
             String imageUrl = currentCar.getImageUrl();
-            if (imagePart != null && imagePart.getSize() > 0) {
-                String fileName = Paths.get(imagePart.getSubmittedFileName()).getFileName().toString();
-                String uploadPath = getServletContext().getRealPath("/") + "newImg";
-                File uploadDir = new File(uploadPath);
-                if (!uploadDir.exists()) uploadDir.mkdir();
 
-                imagePart.write(uploadPath + File.separator + fileName);
-                imageUrl = "newImg/" + fileName;
+            // Handle new image upload
+            Part imagePart = request.getPart("imageUrl");
+            if (imagePart != null && imagePart.getSize() > 0) {
+                String originalFileName = Paths.get(imagePart.getSubmittedFileName()).getFileName().toString();
+                String fileExtension = originalFileName.substring(originalFileName.lastIndexOf("."));
+                String uniqueFileName = UUID.randomUUID().toString() + fileExtension;
+
+             // Get real path of uploads/product_image in deployed app folder
+                String uploadPath = getServletContext().getRealPath("/uploads/product_image/");
+                File uploadDir = new File(uploadPath);
+                if (!uploadDir.exists()) uploadDir.mkdirs();
+
+                
+                // saving file to disk
+                File savedFile = new File(uploadDir, uniqueFileName);
+                try (InputStream input = imagePart.getInputStream();
+                     FileOutputStream output = new FileOutputStream(savedFile)) {
+                    byte[] buffer = new byte[1024];
+                    int bytesRead;
+                    while ((bytesRead = input.read(buffer)) != -1) {
+                        output.write(buffer, 0, bytesRead);
+                    }
+                }
+
+                imageUrl = "uploads/product_image/" + uniqueFileName;
             }
 
-            double price = Double.parseDouble(priceStr);
             Car updatedCar = new Car(carId, carName, model, brand, category, price, colour, imageUrl);
             boolean isUpdated = carDAO.updateCar(updatedCar);
 

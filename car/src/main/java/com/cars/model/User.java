@@ -22,6 +22,7 @@ public class User {
         this.phone = phone;
         this.role = role;
         this.password = password;
+        this.profileImage = profileImage;
     }
 
     // Getters and Setters

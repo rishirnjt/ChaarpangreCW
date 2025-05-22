@@ -75,7 +75,7 @@
     <div class="actions">
       <a href="addCar.jsp"><button>Add Car</button></a>
 
-      <button>Generate Reports</button>
+     
     </div>
 
     <br><br>
